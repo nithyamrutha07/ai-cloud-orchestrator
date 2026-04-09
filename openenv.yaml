@@ -1,0 +1,9 @@
+name: ai-cloud-orchestrator
+
+endpoints:
+  - path: /step
+    method: POST
+  - path: /reset
+    method: POST
+  - path: /state
+    method: GET
