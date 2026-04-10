@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from server.cloud_env import CloudEnv
+from server.tasks import easy_task, medium_task, hard_task
 from server.models import Action
 
 app = FastAPI()
-
 env = CloudEnv()
 
 @app.get("/")
@@ -20,4 +20,15 @@ def state():
 
 @app.post("/step")
 def step(action: Action):
-    return env.step(action.action)
+    state, reward, done, info = env.step(action.action)
+    return {
+        "state": state,
+        "reward": reward,
+        "scores": {
+            "easy": easy_task(state),
+            "medium": medium_task(state),
+            "hard": hard_task(state)
+        },
+        "done": done,
+        "info": info
+    }
