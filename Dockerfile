@@ -8,5 +8,5 @@ RUN pip install -r requirements.txt
 
 
 
-CMD ["python","-m","server.app"]
+CMD ["python", "-c", "from server.app import main; main()"]
 
