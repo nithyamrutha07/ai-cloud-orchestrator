@@ -1,12 +1,12 @@
 [project]
 name = "ai-cloud-orchestrator"
 version = "0.1.0"
-description = "AI Cloud Orchestrator using FastAPI"
-requires-python = ">=3.10"
-
 dependencies = [
     "fastapi",
     "uvicorn",
-    "pydantic"
+    "pydantic",
+    "openenv>=0.2.0"
 ]
 
+[project.scripts]
+server = "server.app:app"
