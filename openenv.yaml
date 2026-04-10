@@ -1,5 +1,5 @@
 name: ai-cloud-orchestrator
-
+server: server.app:main
 endpoints:
   - path: /step
     method: POST
